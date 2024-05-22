@@ -9,7 +9,13 @@ namespace DataConvertAPI
 {
     public class Control
     {
-        public static string Server = "https://apicenter.click/API/view.php?API=";
+        public static class ConfigAPI
+        {
+            public static string Server = "https://apicenter.click/API/view.php?API=";
+            public static string Version = "2.11";
+        }
+        
+
         public static string GetIP()
         {
             string hostName = Dns.GetHostName();
@@ -23,7 +29,7 @@ namespace DataConvertAPI
         }
         public static string CheckAPI(string API)
         {
-            Form1 f = new Form1();
+            LoginKey f = new LoginKey();
             return f.GetData(API, "");
         }
     }

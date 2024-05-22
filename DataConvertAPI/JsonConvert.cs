@@ -11,7 +11,7 @@ namespace DataConvertAPI
         public class CVAPI
         {
             public string Message;
-            public int Status;
+            public string Status;
         }
     }
 }

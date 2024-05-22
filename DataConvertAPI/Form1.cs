@@ -14,9 +14,9 @@ using Newtonsoft.Json;
 
 namespace DataConvertAPI
 {
-    public partial class Form1 : Form
+    public partial class LoginKey : Form
     {
-        public Form1()
+        public LoginKey()
         {
             InitializeComponent();
         }
@@ -70,15 +70,40 @@ namespace DataConvertAPI
                 }
                 else
                 {
-
-                    var API = Control.CheckAPI(Control.Server + "192.168.0.108HAI\admin");
+                    string Search = Control.GetIP() + "~" + Control.GetUserName() + "~" + btnKey.Text;
+                    var API = Control.CheckAPI(Control.ConfigAPI.Server + Search);
                     JsonCV.CVAPI f = JsonConvert.DeserializeObject<JsonCV.CVAPI>(API);
+                    // Nếu đúng Key đưa ra
+                    if(f.Message == "Success")
+                    {
+                        // Check Status của Key xem có bị Block ko
+                        if (f.Status == "Active")
+                        {
+                            // xử lý mở form mới
 
-                    MessageBox.Show(f.Message);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Người dùng đã bị tạm khóa", "Data");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể kết nối đến Server, vui lòng kiểm tra và thử lại!", "Data");
+                    }
+                    
 
 
 
                 }
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            {
+                e.Cancel = true;
             }
         }
     }
