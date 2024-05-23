@@ -52,7 +52,8 @@ namespace DataConvertAPI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nhập 1 Key:";
+            this.label1.Text = "Nhập Key 3:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
