@@ -15,7 +15,6 @@ namespace DataConvertAPI
             public static string Version = "2.11";
         }
         
-
         public static string GetIP()
         {
             string hostName = Dns.GetHostName();
@@ -32,5 +31,6 @@ namespace DataConvertAPI
             LoginKey f = new LoginKey();
             return f.GetData(API, "");
         }
+
     }
 }

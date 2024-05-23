@@ -17,12 +17,13 @@ namespace DataConvertAPI
             InitializeComponent();
         }
 
-        private void FormControl_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormControl_Load(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
-            {
-                e.Cancel = true;
-            }
+        }
+
+        private void btnTTXX_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

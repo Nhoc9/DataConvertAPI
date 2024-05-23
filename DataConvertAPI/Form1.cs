@@ -19,6 +19,7 @@ namespace DataConvertAPI
         public LoginKey()
         {
             InitializeComponent();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -74,7 +75,7 @@ namespace DataConvertAPI
                     var API = Control.CheckAPI(Control.ConfigAPI.Server + Search);
                     JsonCV.CVAPI f = JsonConvert.DeserializeObject<JsonCV.CVAPI>(API);
                     // Nếu đúng Key đưa ra
-                    if(f.Message == "Success")
+                    if (f.Message == "Success")
                     {
                         // Check Status của Key xem có bị Block ko
                         if (f.Status == "Active")
@@ -95,7 +96,7 @@ namespace DataConvertAPI
                     {
                         MessageBox.Show("Không thể kết nối đến Server, vui lòng kiểm tra và thử lại!", "Data");
                     }
-                    
+
 
 
 

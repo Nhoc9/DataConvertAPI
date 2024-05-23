@@ -30,20 +30,21 @@ namespace DataConvertAPI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormControl));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTTXX = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnTTXX
             // 
-            this.button1.Location = new System.Drawing.Point(10, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 27);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTTXX.Location = new System.Drawing.Point(10, 12);
+            this.btnTTXX.Name = "btnTTXX";
+            this.btnTTXX.Size = new System.Drawing.Size(144, 27);
+            this.btnTTXX.TabIndex = 0;
+            this.btnTTXX.Text = "Thông Tin Xuất Xe";
+            this.btnTTXX.UseVisualStyleBackColor = true;
+            this.btnTTXX.Click += new System.EventHandler(this.btnTTXX_Click);
             // 
             // button2
             // 
@@ -80,13 +81,13 @@ namespace DataConvertAPI
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnTTXX);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormControl";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormControl_FormClosing);
             this.Load += new System.EventHandler(this.FormControl_Load);
             this.ResumeLayout(false);
 
@@ -94,7 +95,7 @@ namespace DataConvertAPI
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTTXX;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
