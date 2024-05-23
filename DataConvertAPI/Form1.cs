@@ -80,6 +80,10 @@ namespace DataConvertAPI
                         if (f.Status == "Active")
                         {
                             // xử lý mở form mới
+                            FormControl fm = new FormControl();
+                            this.Hide();
+                            fm.ShowDialog();
+                            this.Show();
 
                         }
                         else
