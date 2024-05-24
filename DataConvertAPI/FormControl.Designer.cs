@@ -88,7 +88,6 @@ namespace DataConvertAPI
             this.Name = "FormControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormControl";
-            this.Load += new System.EventHandler(this.FormControl_Load);
             this.ResumeLayout(false);
 
         }

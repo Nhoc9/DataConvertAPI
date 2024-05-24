@@ -82,6 +82,7 @@ namespace DataConvertAPI
                         {
                             // xử lý mở form mới
                             FormControl fm = new FormControl();
+                            fm.Key = btnKey.Text.ToString();
                             this.Hide();
                             fm.ShowDialog();
                             this.Show();

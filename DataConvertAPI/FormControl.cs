@@ -16,14 +16,17 @@ namespace DataConvertAPI
         {
             InitializeComponent();
         }
-
-        private void FormControl_Load(object sender, EventArgs e)
-        {
-        }
-
+        public string Key;
         private void btnTTXX_Click(object sender, EventArgs e)
         {
-
+            if (JsonCV.CheckAPI(Key))
+            {
+                MessageBox.Show(Key);
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }
