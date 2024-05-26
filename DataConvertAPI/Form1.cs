@@ -85,7 +85,7 @@ namespace DataConvertAPI
                             fm.Key = btnKey.Text.ToString();
                             this.Hide();
                             fm.ShowDialog();
-                            this.Show();
+                            this.Close();
 
                         }
                         else
