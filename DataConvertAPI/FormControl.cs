@@ -16,7 +16,7 @@ namespace DataConvertAPI
         {
             InitializeComponent();
         }
-        public string Key;
+        public static string Key;
         private void btnTTXX_Click(object sender, EventArgs e)
         {
             string PQ = "TTXX";
@@ -26,7 +26,11 @@ namespace DataConvertAPI
                 // check phan quyen thong tin xuat xe
                 if (JsonCV.PhanQuyen.IndexOf(PQ) >= 0)
                 {
-                    MessageBox.Show("ok cho ti");
+                    // xử lý mở form mới
+                    ThongTinXuatXe fm = new ThongTinXuatXe();
+                    this.Hide();
+                    fm.ShowDialog();
+                    this.Show();
                 }
                 else
                 {

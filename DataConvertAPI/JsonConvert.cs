@@ -14,6 +14,9 @@ namespace DataConvertAPI
             public string Message;
             public string Status;
             public string PhanQuyen;
+            public string Cookie;
+            public string CookieValue;
+            public string SOC;
         }
 
         public static string PhanQuyen;
@@ -21,7 +24,7 @@ namespace DataConvertAPI
         public static bool CheckAPI(string KeyIP)
         {
             string Search = Control.GetIP() + "~" + Control.GetUserName() + "~" + KeyIP;
-            var API = Control.CheckAPI(Control.ConfigAPI.Server + Search);
+            var API = Control.GetAPI(Control.ConfigAPI.Server + Search);
             JsonCV.CVAPI f = JsonConvert.DeserializeObject<JsonCV.CVAPI>(API);
             if (f.Message == "Success" && f.Status == "Active"){
                 PhanQuyen = f.PhanQuyen;

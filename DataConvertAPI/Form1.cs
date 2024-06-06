@@ -28,7 +28,7 @@ namespace DataConvertAPI
         }
 
         #region HttpRequest
-        void TestData(string html)
+        public void TestData(string html)
         {
             File.WriteAllText("res.html", html);
             Process.Start("res.html");
@@ -56,7 +56,7 @@ namespace DataConvertAPI
                 AddCookie(http, cookie);
             }
 
-            http.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36";
+            //http.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36";
             string html = http.Get(url).ToString();
             return html;
         }
@@ -72,7 +72,7 @@ namespace DataConvertAPI
                 else
                 {
                     string Search = Control.GetIP() + "~" + Control.GetUserName() + "~" + btnKey.Text;
-                    var API = Control.CheckAPI(Control.ConfigAPI.Server + Search);
+                    var API = Control.GetAPI(Control.ConfigAPI.Server + Search);
                     JsonCV.CVAPI f = JsonConvert.DeserializeObject<JsonCV.CVAPI>(API);
                     // Nếu đúng Key đưa ra
                     if (f.Message == "Success")
@@ -82,7 +82,7 @@ namespace DataConvertAPI
                         {
                             // xử lý mở form mới
                             FormControl fm = new FormControl();
-                            fm.Key = btnKey.Text.ToString();
+                            FormControl.Key = btnKey.Text.ToString();
                             this.Hide();
                             fm.ShowDialog();
                             this.Close();
