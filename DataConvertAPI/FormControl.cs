@@ -17,17 +17,18 @@ namespace DataConvertAPI
             InitializeComponent();
         }
         public static string Key;
-        private void btnTTXX_Click(object sender, EventArgs e)
+
+        #region PendingInbound
+        private void btn_PendingInbound_Click(object sender, EventArgs e)
         {
-            string PQ = "TTXX";
             // Neu Key con hoat dong thi moi xu ly tiep
             if (JsonCV.CheckAPI(Key))
             {
                 // check phan quyen thong tin xuat xe
-                if (JsonCV.PhanQuyen.IndexOf(PQ) >= 0)
+                if (JsonCV.PhanQuyen.IndexOf(Control.SetPhanQuyen.PendingInbound) >= 0)
                 {
                     // xử lý mở form mới
-                    ThongTinXuatXe fm = new ThongTinXuatXe();
+                    PendingInbound fm = new PendingInbound();
                     this.Hide();
                     fm.ShowDialog();
                     this.Show();
@@ -42,6 +43,8 @@ namespace DataConvertAPI
                 this.Close();
             }
         }
+
+        #endregion
 
         private void FormControl_Load(object sender, EventArgs e)
         {

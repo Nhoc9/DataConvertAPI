@@ -1,7 +1,7 @@
 ﻿
 namespace DataConvertAPI
 {
-    partial class ThongTinXuatXe
+    partial class PendingInbound
     {
         /// <summary>
         /// Required designer variable.
@@ -29,36 +29,40 @@ namespace DataConvertAPI
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PendingInbound));
+            this.btn_Load = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // btn_Load
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 61);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox1.Size = new System.Drawing.Size(330, 35);
-            this.textBox1.TabIndex = 0;
+            this.btn_Load.Location = new System.Drawing.Point(47, 31);
+            this.btn_Load.Name = "btn_Load";
+            this.btn_Load.Size = new System.Drawing.Size(110, 31);
+            this.btn_Load.TabIndex = 0;
+            this.btn_Load.Text = "Start Here";
+            this.btn_Load.UseVisualStyleBackColor = true;
+            this.btn_Load.Click += new System.EventHandler(this.btn_Load_Click);
             // 
-            // ThongTinXuatXe
+            // PendingInbound
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 108);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(386, 134);
+            this.Controls.Add(this.btn_Load);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "ThongTinXuatXe";
+            this.Name = "PendingInbound";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thông Tin Xuất Xe";
-            this.Load += new System.EventHandler(this.ThongTinXuatXe_Load);
+            this.Text = "Pending Inbound";
+            this.Load += new System.EventHandler(this.PendingInbound_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btn_Load;
     }
 }

@@ -25,6 +25,11 @@ namespace DataConvertAPI
         private void Form1_Load(object sender, EventArgs e)
         {
             btnInfo.Text = "IP: " + Control.GetIP() + " - User:" + Control.GetUserName();
+            Control.CVAPI f = JsonConvert.DeserializeObject<Control.CVAPI>(Control.ConfigAPI.CheckAppV2());
+            if (f.Message == "Error")
+            {
+                Application.Exit();
+            }
         }
 
         #region HttpRequest
@@ -67,18 +72,18 @@ namespace DataConvertAPI
             {
                 if (btnKey.Text.Length < 10)
                 {
-                    MessageBox.Show("Vui lòng Nhập đúng Key đưa ra !", "Data");
+                    MessageBox.Show("Vui lòng Nhập đúng Key đưa ra !", "Control");
                 }
                 else
                 {
                     string Search = Control.GetIP() + "~" + Control.GetUserName() + "~" + btnKey.Text;
                     var API = Control.GetAPI(Control.ConfigAPI.Server + Search);
-                    JsonCV.CVAPI f = JsonConvert.DeserializeObject<JsonCV.CVAPI>(API);
+                    Control.CVAPI f = JsonConvert.DeserializeObject<Control.CVAPI>(API);
                     // Nếu đúng Key đưa ra
                     if (f.Message == "Success")
                     {
                         // Check Status của Key xem có bị Block ko
-                        if (f.Status == "Active")
+                        if (f.TrangThai == "Active")
                         {
                             // xử lý mở form mới
                             FormControl fm = new FormControl();
@@ -90,12 +95,12 @@ namespace DataConvertAPI
                         }
                         else
                         {
-                            MessageBox.Show("Người dùng đã bị tạm khóa", "Data");
+                            MessageBox.Show("Người dùng đang bị tạm khóa", "Control");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Không thể kết nối đến Server, vui lòng kiểm tra và thử lại!", "Data");
+                        MessageBox.Show("Không thể kết nối đến Server, vui lòng kiểm tra và thử lại!", "Control");
                     }
 
 
@@ -107,10 +112,10 @@ namespace DataConvertAPI
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
-            {
-                e.Cancel = true;
-            }
+            //if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            //{
+            //    e.Cancel = true;
+            //}
         }
 
         private void label1_Click(object sender, EventArgs e)
