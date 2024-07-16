@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,6 +50,18 @@ namespace DataConvertAPI
         private void FormControl_Load(object sender, EventArgs e)
         {
 
+            // kiểm tra xem người dùng có bị khóa không
+            if (!JsonCV.CheckAPI(Key))
+            {
+                Application.Exit();
+            }
+            // nếu chưa cài cookie hoặc cookie hết hạn
+            Control.CVAPI f = JsonConvert.DeserializeObject<Control.CVAPI>(Control.ConfigAPI.CallAPI());
+            if (f.Cookie != "Yes")
+            {
+                MessageBox.Show("Không thể kết nối đến Server. Vui lòng thử lại sau (Mã lỗi: 900)", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
     }
 }

@@ -20,11 +20,13 @@ namespace DataConvertAPI
 
         private void PendingInbound_Load(object sender, EventArgs e)
         {
-            if (JsonCV.CheckAPI(FormControl.Key))
+            // kiểm tra xem người dùng có bị khóa không
+            if (!JsonCV.CheckAPI(FormControl.Key))
             {
                 Application.Exit();
             }
-                Control.CVAPI f = JsonConvert.DeserializeObject<Control.CVAPI>(Control.ConfigAPI.CallAPI());
+            // nếu chưa cài cookie hoặc cookie hết hạn
+            Control.CVAPI f = JsonConvert.DeserializeObject<Control.CVAPI>(Control.ConfigAPI.CallAPI());
             if (f.Cookie != "Yes")
             {
                 MessageBox.Show("Không thể kết nối đến Server. Vui lòng thử lại sau (Mã lỗi: 900)", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
